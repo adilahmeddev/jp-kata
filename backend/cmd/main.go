@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	httpserver "github.com/adilahmeddev/jp-kata/backend/pkg/server"
+	httpserver "github.com/adilahmeddev/jp-kata/backend/pkg/adapter"
 )
 
 func main() {
