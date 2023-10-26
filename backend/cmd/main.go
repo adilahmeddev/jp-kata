@@ -1,14 +1,17 @@
 package main
 
 import (
+	"github.com/adilahmeddev/jp-kata/backend/pkg/adapter"
+	jpservice "github.com/adilahmeddev/jp-kata/backend/pkg/domain/jp-service"
 	"log"
-
-	httpserver "github.com/adilahmeddev/jp-kata/backend/pkg/adapter"
+	"net/http"
 )
 
 func main() {
-	server := httpserver.NewServer("7290")
-	err := server.ListenAndServe()
+	http.Handle("/unique-tokens", &adapter.Handler{
+		Processor: &jpservice.JpProcessor{},
+	})
+	err := http.ListenAndServe(":7290", nil)
 	if err != nil {
 		log.Fatal(err)
 

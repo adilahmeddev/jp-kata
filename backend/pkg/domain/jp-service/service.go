@@ -1,6 +1,7 @@
 package jpservice
 
 import (
+	"fmt"
 	"log"
 	"regexp"
 	"strings"
@@ -28,11 +29,14 @@ func (jpProcessor *JpProcessor) GetUnique(characters string) []string {
 	uniqueChars := []string{}
 
 	for i := 0; i < len(characterArray); i++ {
+		fmt.Println("YO DAWG _ " + characterArray[i])
 		if r.MatchString(characterArray[i]) {
 			_, exists := characterSet[characterArray[i]]
+			fmt.Println("YYOMAMA _ " + characterArray[i])
 			if !exists {
 				uniqueChars = append(uniqueChars, characterArray[i])
 				characterSet[characterArray[i]] = struct{}{}
+				fmt.Println("z _ " + characterArray[i])
 			}
 		}
 	}
