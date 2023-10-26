@@ -10,8 +10,8 @@ import (
 func TestGetUnique(t *testing.T) {
 	jp := jpservice.JpProcessor{}
 
-	gotRunes := jp.GetUnique("漢ウキウク")
-	expectedRunes := []rune{'ウ', 'キ', 'ク'}
+	gotRunes := jp.GetUnique("庭には二羽鶏がいる")
+	expectedRunes := []string{"庭", "羽", "鶏", "二"}
 
 	if utils.SlicesUnorderedEql(gotRunes, expectedRunes) {
 		t.Errorf("got characters %v do not equal expected characters %v", gotRunes, expectedRunes)

@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	server := httpserver.NewServer("7000")
+	server := httpserver.NewServer("7290")
 	err := server.ListenAndServe()
 	if err != nil {
 		log.Fatal(err)
