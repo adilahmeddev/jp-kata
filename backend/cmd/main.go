@@ -8,9 +8,7 @@ import (
 )
 
 func main() {
-	http.Handle("/unique-tokens", &adapter.Handler{
-		Processor: &jpservice.JpProcessor{},
-	})
+	http.Handle("/unique-tokens", adapter.NewHandler(&jpservice.JpProcessor{}))
 	err := http.ListenAndServe(":7290", nil)
 	if err != nil {
 		log.Fatal(err)

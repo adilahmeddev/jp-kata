@@ -16,9 +16,9 @@ type JpProcessor struct {
 }
 
 func (jpProcessor *JpProcessor) GetUnique(characters string) []string {
-	u := utf16.Decode([]uint16{0x3400, 0x4DB5, 0x4E00, 0x9FCB, 0xF900, 0xFA6A})
-
-	r, err := regexp.Compile("[" + string(u) + "]")
+	u := utf16.Decode([]uint16{0x4e00})
+	y := utf16.Decode([]uint16{0x9fcf})
+	r, err := regexp.Compile("[" + string(u) + "-" + string(y) + "]")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
